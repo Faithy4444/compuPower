@@ -4,8 +4,19 @@ let cart = [];
 const addToCart = (product, price) => {
     let cartItems = document.getElementById("cart-items");
     cart.push({ product, price });
-    cartItems.innerHTML = JSON.stringify(cart);
+    let output = "";
 
-    return (cart)
+    cart.forEach(item => {
+        output += `
+            <div class="cart-item">
+                <h3>${item.product}</h3>
+                <p>R${item.price}</p>
+            </div>
+        `;
+    });
+
+    cartItems.innerHTML = output;
+
+    return cart;
 
 }
