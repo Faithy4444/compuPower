@@ -10,3 +10,32 @@ const addToCart = (product, price) => {
 
     console.log(cart);
 };
+
+const displayCart = () => {
+
+    let cartItems = document.getElementById("cart-items");
+
+    let output = "";
+
+    cart.forEach((item, index) => {
+
+        output += `
+            <div class="cart-item">
+
+                <h3>${item.product}</h3>
+
+                <p>R${item.price}</p>
+
+                <p>Quantity: ${item.quantity}</p>
+
+                <button onclick="removeFromCart(${index})">
+                    Remove
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    cartItems.innerHTML = output;
+};
